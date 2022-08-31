@@ -27,8 +27,8 @@ class YggdrasilConfig:
             raise RuntimeError("No models found")
 
         if "connections" in self.ygg_config:
-            # could (should?) be used to initialize socket connections values
-            # for controls?
+            # could (should?) be used to initialize socket links to controls
+            # once controls exist?
             print("ignoring connections")
 
         self.sockets = tuple(self.sockets)
@@ -48,7 +48,6 @@ class YggdrasilConfig:
 
         # Setup initial dictionary to be filled
         new_dict, new_dict["inputs"], new_dict["outputs"], = {}, [], []
-        sockets = set()
 
         # ygg config models also have language and args attributes,
         # those should probably be controls, which dont exist yet...
